@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>主菜单</title>
+    <!--<link rel="stylesheet" href="swiper.min.css">-->
+	<style type="text/css">
+		*{  
+            margin: 0px;  
+            padding: 0px;  
+        }  
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(28,38,58);
+        }
+        #header{
+        	width: 100%;
+        	height: 100px;
+        	background: linear-gradient(#eeeeee 5%, #c7d5e0 95%);
+        }
+        #logo_box{
+            position: absolute;
+            top: 25px;
+            height: 50px;
+            width: 320px;
+            margin-left: 290px;
+            float: left;
+        }
+        #steamlogo1{
+            height: 50px;
+            width: 55px;
+            float: left;
+        }
+        #logo{
+            height: 45px; 
+            width: 200px;   
+            float: left; 
+        }
+
+
+        #header_nav{
+            position: absolute;
+            top: 40px;
+            margin-left: 550px;
+            float: left;
+            /*border:1px solid black;*/
+
+        }
+        .header_li{
+            float: left;
+           /* border:1px solid black;*/
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+
+        #header_login{
+            position: absolute;
+            top: 40px;
+            right: 320px;
+            color: rgb(28,38,58);
+            font-size: 16px;
+        }
+        #header_login div{
+            float: left;
+        }
+        #middle{
+        	width: 100%;
+        }
+        video{ 
+            float: left;
+            right: 0px;   
+            min-width: 100%;  
+            min-height: 100%;  
+            height: 100%;  
+            width: 100%;  
+            z-index:-11;
+        }  
+        source{  
+            min-width: 100%;  
+            min-height: 100%;  
+            height: auto;  
+            width: auto;  
+        } 
+        #middle_nav{
+            width: 900px;
+            position: absolute;
+            top: 140px;
+            left: 305px;
+            background-color: rgba(16, 40, 60, 0.2);
+        }
+        .middle_nav_show>a,#news>span{
+           display: inline-block;
+           height: 35px;
+           width: 100%;
+           margin-top: 5px;
+        }
+        #your_store,#games,#software,#hardware,#news{
+            width: 100px;
+            height: 35px; 
+            background-color: rgba(16, 40, 60, 0.2);
+            display: inline-block;
+            text-align: center;
+           /* border-right: 1px solid rgb(28,38,58);*/
+        }
+        .middle_nav_show a,#news{
+            color: #c6d4df;
+            font-size: 16px;
+        }
+        
+        
+        .middle_nav_hide{
+           background: linear-gradient(#eeeeee 5%, #c7d5e0 95%);
+           width: 100px;
+           position: absolute;
+           display: none;
+        }
+        #your_store:hover div{
+            display: block;
+        }
+        #games:hover div{
+            display: block;
+        }
+        #software:hover div{
+            display: block;
+        }
+        #hardware:hover div{
+            display: block;
+        }
+        #your_store_hide{
+            top: 35px;
+            left: 0px;
+        }
+        #games_hide{
+            top: 35px;
+            left: 105px
+        }
+        #software_hide{
+            top: 35px;
+            left: 210px;
+        }
+        #hardware_hide{
+            top: 35px;
+            left: 315px;
+        }
+        .line{
+            border-bottom:2px solid white;
+            width: 80px;
+            margin-left: 10px;
+        }
+        .middle_nav_item{
+            font-size: 14px;
+            display: block;
+            color: rgb(28,38,58);
+            height: 35px;
+            text-align: left;
+            text-indent: 10px;
+            line-height: 35px;
+        }
+        .middle_nav_item:hover{
+            background-color: rgb(28,38,58);
+            color: #c7d5e0;
+        }
+        #middle_nav_text{
+            font-size: 14px;
+            color: rgb(28,90,150);
+            height: 35px;
+            text-indent: 10px;
+            line-height: 35px;
+        }
+        #search_box{
+            float: right;
+            display: inline-block;
+            height: 33px;
+            width: 210px;
+            background-color: rgba(14,28,37,0.3); 
+            border:1px solid rgb(28,38,58);
+        }
+        #search{
+            float: left;
+            height: 33px;
+            position: relative;
+        }
+        #search_input{
+            position: absolute;
+            top: 0px;
+            height: 33px;
+            background-color: rgba(14,28,37,0.3);
+            border:none;
+            border-radius: 3px 3px 3px 3px;
+        }
+		#search_pic{
+            float: right;
+            margin-right: 2px;
+            height: 33px;
+            width: 33px;
+            border-radius: 3px 3px 3px 3px;
+            opacity: 0.5;
+        }
+        #game_box{
+            width: 1400px;
+            height: 490px;
+            position: absolute;
+            top: 450px;
+            left: 60px;
+        }
+        #game1{
+            width: 425px;
+            height: 484px;
+            float: left;
+            box-shadow: 0 0 10px #000;
+        }
+        #game2{
+            width: 425px;
+            height: 484px;
+            float: left;
+            margin-left: 56.5px;
+            box-shadow: 0 0 10px #000;
+        }
+        #game3{
+            width: 425px;
+            height: 484px;
+            float: left;
+            margin-left: 56.5px;
+            box-shadow: 0 0 10px #000;
+        }
+        
+        #pic1:hover{
+            display: none;
+        }
+        #pic2:hover{
+            display: none;
+        }
+        #pic3:hover{
+            display: none;
+        }
+        
+        .text{
+            width: 425px;
+            height: 253px;
+            background: linear-gradient(rgb(41,73,133) 5%, rgb(18,50,89) 95%);
+            position: absolute;
+            bottom: 0px;
+        }
+        .btn{
+            font-size: 16px;
+            background: linear-gradient(rgb(121,153,5) 5%, rgb(83,105,4) 95%);
+            border: 1px solid rgb(164,208,7);
+            width: 130px;
+            height: 30px;
+            color: rgb(210,232,133);
+            border-radius: 3px;
+        }
+        .btn:hover{
+            background: linear-gradient(rgb(161,191,7) 5%, rgb(128,160,6) 95%);
+        }
+        #bottom{
+            float: left;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(rgb(117,143,155) 5%, rgb(28,38,58) 95%);
+        }
+        #team{
+            height: 25px;
+            width: 100%;
+            position: absolute;
+            bottom: -300px;
+            color: rgb(105,130,140);
+            font-size: 20px;
+        }
+        #team_text{
+            position: absolute;
+            left: 530px;
+        }
+        #team_text1{
+            position: absolute;
+            left: 530px;
+            top: 400px;
+            font-size: 16px;
+            color: rgb(105,130,140);
+        }
+	</style>
+</head>
+<body>	
+	<div class="header" id="header">
+		<div id="logo_box">
+            <img src="steamlogo1.PNG" id="steamlogo1"/>
+            <img src="logo.PNG" id="logo"/>      
+        </div>
+        <div id="header_nav">
+            <ul id="header_ul">
+                <li class="header_li"><a href="" class="header_li">平台主页</a></li>
+                <li class="header_li"><a href="out.html" class="header_li">愿望清单</a></li>
+                <li class="header_li"><a href="ctc/ctc.html" class="header_li">个人中心</a></li>
+            </ul>
+        </div>
+        <div id="header_login">
+            <div id="login"><a href="lhx/lhx.html">登录</a></div>
+        </div>
+	</div>
+
+	<div class="middle" id="middle">
+		<video  autoplay loop muted >
+		    <source src="./bg_vedio.mp4" type="video/mp4"/>
+		</video>
+        <div id="middle_nav"> 
+            <div id="your_store">
+                <span class="middle_nav_show"><a href="out.html">您的商店</a>
+                </span>
+                <div id="your_store_hide" class="middle_nav_hide">
+                    <a href="" class="middle_nav_item">商店主页</a>
+                    <div class="line"></div>
+                    <a href="out.html" class="middle_nav_item">最近查看</a>
+                    <a href="out.html" class="middle_nav_item">最近的更新</a>
+                </div>
+            </div>
+           
+            <div id="games">
+                <span class="middle_nav_show"><a href="">游戏</a></span>
+                <div id="games_hide" class="middle_nav_hide">
+                    <a href="out.html" class="middle_nav_item">免费游玩</a>
+                    <a href="out.html" class="middle_nav_item">抢先体验</a>
+                    <a href="out.html" class="middle_nav_item">试玩</a>
+                    <a href="out.html" class="middle_nav_item">虚拟现实</a>
+                    <a href="out.html" class="middle_nav_item">远程畅玩</a>
+                    <div class="line"></div>
+                    <div id="middle_nav_text">按类型浏览：</div>
+                    <a href="out.html" class="middle_nav_item">休闲</a>
+                    <a href="out.html" class="middle_nav_item">竞速</a>
+                    <a href="out.html" class="middle_nav_item">冒险</a>
+                    <a href="out.html" class="middle_nav_item">动作</a>
+                    <a href="out.html" class="middle_nav_item">独立</a>
+                    <div class="line"></div>
+                    <a href="out.html" class="middle_nav_item">热门评论</a>
+                </div>
+            </div>
+            
+            <div id="software">
+                <span class="middle_nav_show"><a href="out.html">软件</a></span>
+                <div id="software_hide" class="middle_nav_hide">
+                    <a href="out.html" class="middle_nav_item">软件中心</a>
+                    <div class="line"></div>
+                    <a href="out.html" class="middle_nav_item">实用工具</a>
+                    <a href="out.html" class="middle_nav_item">游戏开发</a>
+                    <a href="out.html" class="middle_nav_item">照片编辑</a>
+                    <a href="out.html" class="middle_nav_item">视频制作</a>
+                    <a href="out.html" class="middle_nav_item">设计与插画</a>
+                </div>
+            </div>
+            
+            <div id="hardware">
+                <span class="middle_nav_show"><a href="out.html">硬件</a></span>
+                <div id="hardware_hide" class="middle_nav_hide">
+                    <a href="out.html" class="middle_nav_item">网络适配器</a>
+                    <a href="out.html" class="middle_nav_item">图形适配器</a>
+                    <a href="out.html" class="middle_nav_item">显示器</a>
+                </div>
+            </div>
+            
+            <a href="out.html" id="news">
+                <span>新闻</span>
+            </a>
+            <div id="search_box">
+                <div id="search">
+                    <input id="search_input" type="text" placeholder="   搜 索 商 店" size="22">
+                </div>
+                <a href="#" id="search_pic_a">
+                    <img src="search.jpg" id="search_pic">
+                </a>
+            </div>
+        </div>
+
+        <div id="team_text1">本网站由杨天羿、陈天赐、焦国宁、李鸿鑫共同完成</div>
+
+        <div class="game_box" id="game_box">
+            <div id="game1" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" id="pic1">
+                        <a href="jgn/R6S.html"><img src="R6S/R6S.jpg" style="width:425px;height:239px"></a>
+                        <div class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Rainbow-Six Siege</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Ubisoft Montreal</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Ubisoft</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/R6S.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" id="box1">
+                        <div id="vedio1">
+                            <video autoplay loop muted>
+                                <source src="R6S/R6S_vedio.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div id="text1" class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Rainbow-Six Siege</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Ubisoft Montreal</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Ubisoft</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/R6S.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game2" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" id="pic2">
+                        <a href="jgn/terraria.html"><img src="terraria/terraria.jpg" style="width:425px;height:239px"></a>
+                        <div class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Terraria</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Re-Logic</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Re-Logic</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/terraria.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" id="box2">
+                        <div id="vedio2">
+                            <video autoplay loop muted>
+                                <source src="terraria/terraria_vedio.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div id="text2" class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Terraria</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Re-Logic</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Re-Logic</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/terraria.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game3" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" id="pic3">
+                        <a href="jgn/hollowknight.html"><img src="hollowknight/hollowknight.jpg" style="width:425px;height:239px"></a>
+                        <div class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Hollow Knight</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Team Cherry</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Team Cherry</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/hollowknight.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" id="box3">
+                        <div id="vedio3">
+                            <video autoplay loop muted>
+                                <source src="hollowknight/hollowknight_vedio.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div id="text3" class="text">
+                            <div style="color:white;font-size:32px;margin-top:30px;margin-left:20px">Hollow Knight</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">开发商：</span>Team Cherry</div>
+                            <div style="color:white;font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>Team Cherry</div>
+                            <div style="color:rgb(85,160,210);font-size:16px;margin-top:10px;margin-left:20px"><span style="color:rgb(140,140,145)">发行商：</span>特别好评</div>
+                            <div style="margin-top:30px;margin-left:20px;"><a href="jgn/hollowknight.html"><button class="btn">查看详情页面</button></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bottom" id="bottom">
+            <div id="team">
+                <span id="team_text">本网站由杨天羿、陈天赐、焦国宁、李鸿鑫共同完成</span>
+            </div>
+        </div>
+	</div>
+
+    <!-- // <script src="swiper.min.js"></script> -->
+    <script type="text/javascript">
+        // var i=1000;
+        // var text = document.getElementById("team_text");
+        // window.onclick = function(){
+        //     setInterval(function(){
+        //         i-=2;
+        //         if(i==-500){
+        //             i=1000;
+        //         }
+        //         text.style.left = i+"px";
+        //     },20);
+        // }
+
+	</script>
+</body>
+</html>
